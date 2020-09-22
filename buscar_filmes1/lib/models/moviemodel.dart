@@ -1,7 +1,9 @@
+
 //Informaçoes de todos os filme da API
 class MovieModel {
   final String original_title, overview, poster_path, country, release_date;
-  final int id, run_time;
+  final int id, run_time, revenue;
+
   final double rating;
   final List genre;
   MovieModel(
@@ -13,6 +15,7 @@ class MovieModel {
         this.original_title,
         this.overview,
         this.poster_path,
+        this.revenue,
         this.id});
   factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
@@ -25,6 +28,8 @@ class MovieModel {
         run_time: json['runtime'],
         genre: json['genres'],
         rating: json['vote_average']
+        rating: json['vote_average'],
+        revenue: json['revenue']
     );
   }
 }
