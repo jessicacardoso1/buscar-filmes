@@ -9,7 +9,7 @@ class Api{
 
   //Retorna no futuro uma lista com os dados do filmes da API de acordo com gênero escolhido
   Future<List<GenreModel>> getGenreList() async {
-    final response = await http.get('$url/genre/movie/list?api_key=$apiKey');
+    final response = await http.get('$url/genre/movie/list?api_key=$apiKey&language=pt-BR');
 
     // Caso o codigo do status seja 200, significia que ocorreu da forma correta
     if (response.statusCode == 200) {
@@ -27,7 +27,7 @@ class Api{
 
   //Retorna no futuro uma lista com os dados do filme da API.
   Future<MovieModel> getMovieInfo(int movieId) async{
-    final response = await http.get("$url/movie/$movieId?api_key=$apiKey");
+    final response = await http.get("$url/movie/$movieId?api_key=$apiKey&language=pt-BR");
 
     if (response.statusCode == 200){
       return MovieModel.fromJson(json.decode(response.body));
